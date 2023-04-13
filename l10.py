@@ -21,7 +21,7 @@ if rank != 0:
     time_end = time.time()
     elapsed_time = time_end - time_start
     
-    comm.send(elapsed.time, 0)
+    comm.send(elapsed_time, 0)
 
 else:
     print('Sef de departament.')
