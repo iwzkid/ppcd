@@ -21,8 +21,6 @@ if rank != 0:
     time_end = time.time()
     elapsed_time = time_end - time_start
 
-    comm.send(random.randint(25, 120), 0)
-
 else:
     print('Sef de departament.')
     # Dupa ce seful a colectat toate mesajele de incheiere a reparatiilor,
