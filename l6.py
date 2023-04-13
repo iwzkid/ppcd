@@ -27,30 +27,6 @@ if (rank != 3):
     dice_values = throw_dice(rank+1, True)
     comm.send(sum(dice_values), 3)
 
-# 0 - print & send to 3
-#if rank == 0:
-    # Throw & Print.
-    #dice_values = throw_dice(1, True)
-    # Extract only value.
-    #dice_value = dice_values[0]
-    # Send.
-
-# 1 - throw twice, print each time, sum, send sum to 3
-#if rank == 1:
-    # Throw & Print.
-    #dice_values = throw_dice(2, True)
-    # Sum.
-    #dice_values_sum = sum(dice_values)
-    # Send.
-
-# 2 - throw thrice, print each time, sum, send sum to 3
-#if rank == 2:
-    # Throw & Print.
-    #dice_values = throw_dice(3, True)
-    # Sum.
-    #dice_values_sum = sum(dice_values)
-    # Send.
-
 # 3 - sum of all received
 if rank == 3:
     sum = 0
