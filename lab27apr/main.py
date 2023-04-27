@@ -31,6 +31,7 @@ if rank == 0:
     sorted_offers = sorted(offers_list, key=lambda offer: offer['w_price'])
 
     quantity_var = quantity
+    final_price = 0
 
     print(sorted_offers)
 
@@ -38,8 +39,12 @@ if rank == 0:
         if quantity_var > 0:
             if offer['w_number'] >= quantity_var:
                 print("Taking " + str(quantity_var) + " for " + str(offer['w_price']))
+                final_price = quantity_var * offer['w_price']
             else:
                 print("Taking " + str(offer['w_number']) + " for " + str(offer['w_price']))
+                final_price = offer['w_number'] * offer['w_price']
+
+            print(final_price)
             quantity_var = quantity_var - offer['w_number']
         
 if rank == 1:
