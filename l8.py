@@ -38,4 +38,4 @@ else:
     print(f'Ziua de munca s-a incheiat. In total, au fost folosite {time} secunde.')
 
 # RUN
-# mpiexec -np 4 python l10.py
+# mpiexec -np 4 python l8.py
