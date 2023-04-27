@@ -32,20 +32,25 @@ if rank == 0:
 
     quantity_var = quantity
     final_price = 0
+    good_offers = []
 
     print(sorted_offers)
 
     for offer in sorted_offers:
         if quantity_var > 0:
             if offer['w_number'] >= quantity_var:
-                print("Taking " + str(quantity_var) + " for " + str(offer['w_price']))
-                final_price = quantity_var * offer['w_price']
+                print(f"Taking " + str(quantity_var) + " for " + str(offer['w_price']))
+                final_price = final_price + quantity_var * offer['w_price']
+                good_offers.append({"w_number": quantity_var, "w_price": offer['w_price']})
             else:
                 print("Taking " + str(offer['w_number']) + " for " + str(offer['w_price']))
-                final_price = offer['w_number'] * offer['w_price']
+                final_price = final_price + offer['w_number'] * offer['w_price']
+                good_offers.append({"w_number": offer['w_number'], "w_price": offer['w_price']})
 
-            print(final_price)
             quantity_var = quantity_var - offer['w_number']
+
+    print(good_offers)
+    print(round(final_price, 2))
         
 if rank == 1:
     quantity = comm.recv(source=0)
