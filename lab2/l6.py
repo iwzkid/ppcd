@@ -1,23 +1,17 @@
 import mpi4py
 import random
 import typing
-
 from mpi4py import MPI
 
 # Defines a function returning a random int in the [1,6] interval.
-
-
 def throw_dice(n=1, prnt=False) -> list:
     dice_values = []
     for i in range(n):
         dice_value = random.randint(1, 6)
         dice_values.append(dice_value)
-
     if prnt:
         print(dice_values)
-
     return dice_values
-
 
 # Community of processes.
 comm = MPI.COMM_WORLD
@@ -63,5 +57,4 @@ if rank == 3:
             #     data = comm.recv(source=MPI.ANY_SOURCE)
             data = comm.recv(source=i)
             sum += data
-
     print(f"Process {rank} received a sum of {sum} from other processes.")
