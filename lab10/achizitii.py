@@ -57,7 +57,6 @@ if rank in range(2, 5):
 
     comm.send(offer, 0)
 
-
 # Exemplu:
 # Oferta 1: (25, 1)
 # Oferta 2: (2000, 2)

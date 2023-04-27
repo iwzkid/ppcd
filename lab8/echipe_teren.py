@@ -1,9 +1,9 @@
 import random
 import time
-
 from mpi4py import MPI
 
 # Un departament de reparatii are 10 echipe in teren.
+
 # MPI Variables.
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
@@ -32,8 +32,7 @@ else:
     for i in range(size):
         if i == rank:
             continue
-
         time += comm.recv(source=i)
-
     print(
         f'Ziua de munca s-a incheiat. In total, au fost folosite {time} secunde.')
+    print(f'Ziua de munca s-a incheiat. In total, au fost folosite {time} secunde.')
