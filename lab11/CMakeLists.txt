@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.25)
+
+project(
+  PpcdLab11
+  VERSION 1.0
+  LANGUAGES CXX
+)
+
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+set(CMAKE_INSTALL_MESSAGE LAZY)  # Don't tell us about up-to-date files.
+set_property(GLOBAL PROPERTY RULE_MESSAGES OFF)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "") # works
+
+
+add_executable(ppcd-11 lab11.cpp)
+
+
+find_package(MPI REQUIRED)
+message(STATUS "Run: ${MPIEXEC} ${MPIEXEC_NUMPROC_FLAG} ${MPIEXEC_MAX_NUMPROCS} ${MPIEXEC_PREFLAGS} EXECUTABLE ${MPIEXEC_POSTFLAGS} ARGS")
+target_link_libraries(ppcd-11 PUBLIC MPI::MPI_CXX)
